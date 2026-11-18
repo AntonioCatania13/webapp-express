@@ -1,7 +1,7 @@
 import express from 'express' //imp. server come, dove
 
 const app = express()
-const port = 3000
+const port = process.env.APP_PORT
 
 //rotta
 app.get('/', (req, res) => {
