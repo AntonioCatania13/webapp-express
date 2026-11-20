@@ -20,8 +20,11 @@ model Giochi {
   ageMin Int 
   time Int   //tempo di gioco "m"
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt 
-  
+  updatedAt DateTime @updatedAt
+  description String? @db.Text
+  image String? @db.VarChar(255)
+  difficulty Int //da "1 a 5"
+
   category Category @relation(fields: [categoryId], references: [id])
   categoryId Int
 }
@@ -29,8 +32,7 @@ model Giochi {
 
 model Category {
   id Int @id @default(autoincrement())
-  name String @db.VarChar(30)
-  description String? 
+  name String @unique @db.VarChar(50) 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
